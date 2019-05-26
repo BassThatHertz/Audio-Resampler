@@ -10,7 +10,7 @@ Click on "Clone or download" and select "Download ZIP".
 
 Step 2:
 
-Extract the zip file. A new folder named "Audio-Resampler-master" should appear.
+Extract the zip file. A new folder named "Audio-Resampler-master" should appear which contains resampler.py and two subfolders; Windows and macOS.
 
 Step 3: 
 
