@@ -1,8 +1,14 @@
 # Audio Resampler
 
-This program allows you to change the sample rate of WAV files and saves them as "*original name* [new sample rate]". For example, if you specify a desired sample rate of 44.1kHz, an audio file named "test.wav" will be saved as "test [44.1kHz].wav" after the resampling is complete. The orignal audio files are not replaced/deleted.
+- This program allows you to change the sample rate of all WAV files in the current directory (the folder "Audio-Resampler-master" after you extract the ZIP file of this repository).
 
-Instructions:
+- The resampled files are saved as "*original name* [new sample rate]". For example, if you specify a desired sample rate of 44.1kHz, an audio file named "test.wav" will be saved as "test [44.1kHz].wav" after the resampling is complete.
+
+- The orignal audio files are not replaced/deleted.
+
+A batch resample of all WAV files in the the "Audio-Resampler-master" folder takes place; you do not have to manually select each file when running the program.
+
+# Instructions:
 
 Step 1:
 
