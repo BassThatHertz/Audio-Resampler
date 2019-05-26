@@ -4,7 +4,7 @@
 
 - The resampled files are saved as "*original name* [new sample rate]". For example, if you specify a desired sample rate of 44.1kHz, an audio file named "test.wav" will be saved as "test [44.1kHz].wav" after the resampling is complete.
 
-- The orignal audio files are not replaced/deleted.
+- The orignal WAV files are not replaced/deleted.
 
 A batch resample of all WAV files in the the "Audio-Resampler-master" folder takes place; you do not have to manually select each file when running the program.
 
