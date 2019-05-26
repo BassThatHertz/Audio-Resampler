@@ -10,7 +10,6 @@ filepath_of_sox = os.path.join("sox", "sox")
 desired_sample_rate = int(input("What would you like to change the sample rate to? \nUnit: Hz \nExample: For 44.1kHz, enter '44100'\nPlease enter an integer: "))
 
 sample_rate_in_kHz = desired_sample_rate / 1000
-sample_rate_in_kHz = str(sample_rate_in_kHz)
 end_of_filename = " [{}kHz]".format(sample_rate_in_kHz)
 print(end_of_filename)
 
