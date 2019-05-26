@@ -20,6 +20,6 @@ Step 4:
 - If you're on Windows, move the files in the "Windows" folder into the "sox" folder.
 - If you're on macOS, move the files in the "macOS" folder into the "sox" folder.
 
-Step 5: 
+Step 5:
 
-Move all the WAV files that you want to change the sample rate of into the "Audio-Resampler-master" folder. You can now run the resampler by clicking on "resampler.py".
+Put the WAV files that you want to change the sample rate of into the "Audio-Resampler-master" folder. You can now run the resampler by clicking on "resampler.py".
