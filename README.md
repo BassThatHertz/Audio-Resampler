@@ -2,7 +2,7 @@
 
 - This program allows you to change the sample rate of WAV files. You must move the WAV files that you want to change the sample rate of into the folder "Audio-Resampler-master" which is created when you extract the ZIP file of this repository.
 
-- The desired sample rate must be specified in Hz, e.g. for a 44.1kHz sample rate, you must enter "44100" when prompted to enter your desired sample rate.
+- The desired sample rate must be specified in Hz, e.g. for a 44.1kHz sample rate you must enter "44100" when prompted to enter your desired sample rate.
 
 - The resampled files are saved as "*original name* [new sample rate]". For example, if you specify a desired sample rate of 44.1kHz, an audio file named "test.wav" will be saved as "test [44.1kHz].wav" after the resampling is complete.
 
