@@ -4,7 +4,7 @@
 
 - The desired sample rate must be specified in Hz, e.g. for a 44.1kHz sample rate you must enter "44100" when prompted to enter your desired sample rate.
 
-- The resampled files are saved as "*original name* [new sample rate]". For example, if you specify a desired sample rate of 44.1kHz, an audio file named "test.wav" will be saved as "test [44.1kHz].wav" after the resampling is complete.
+- The resampled files are saved as "*original name* [new sample rate]". For example, if you specify a desired sample rate of 44.1kHz, an audio file named "test.wav" will be saved as "test [44.1kHz].wav" after being resampled.
 
 - The orignal WAV files are not replaced/deleted.
 
