@@ -11,8 +11,11 @@ desired_sample_rate = int(input("What would you like to change the sample rate t
 
 sample_rate_in_kHz = desired_sample_rate / 1000
 end_of_filename = " [{}kHz]".format(sample_rate_in_kHz)
-print(end_of_filename)
 
 for file in compatible_file_list:
+    new_filename = file[:-4] + end_of_filename + ".wav"
     print("Resampling {}...".format(file))
-    os.system('{} -G "{}" -r {} "{}".wav'.format(filepath_of_sox, file, desired_sample_rate, file + end_of_filename))
+    os.system('{} -G "{}" -r {} "{}"'.format(filepath_of_sox, file, desired_sample_rate, new_filename))
+    print("Resample complete! Resampled file saved as {}".format(new_filename))
+
+prevent_window_from_closing = input("You may now close this window.")
