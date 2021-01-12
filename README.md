@@ -1,11 +1,22 @@
 A command line program that changes the sample rate of WAV files.
-# Instructions:
-- Clone this repository. Inside the folder of this repository, create a folder named "sox".
 
-*If you're on Windows, move the files in the "Windows" folder to the "sox" folder.*
+#Usage:
 
-*If you're on macOS, move the files in the "macOS" folder to the "sox" folder.*
+```
+usage: resampler.py [-h] [-p WAV_FILES_PATH] -r {44100,48000,96000,192000} -os {windows,macos}
 
-- Put the WAV files that you want to change the sample rate of in the root of the repository folder (wav-resampler).
+Available arguments:
+  -h, --help            show this help message and exit
+  -p WAV_FILES_PATH, --wav-files-path WAV_FILES_PATH
+                        Enter the path of the directory that the WAV files are in. If the path contains a space, it must be surrounded in double quotes.
+                        If this argument is not specified, the current directory will be used.
+                        Example: -p "C:/Users/H/Desktop/WAV files"
+  -r {44100,48000,96000,192000}, --sample-rate {44100,48000,96000,192000}
+                        Choose a sample rate (Hz).
+  -os {windows,macos}, --operating-system {windows,macos}
+                        Specify your operating system. Only the Windows and macOS operating systems are supported.
+```
 
-- Open the command prompt/terminal, cd to the wav-resampler directory and enter `python resampler.py`.
+# Examples:
+`python resampler.py -p C:\Users\H\Desktop -r 48000 -os windows`
+`python resampler.py -r 96000 -os macos`

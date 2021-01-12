@@ -1,27 +1,59 @@
-import os 
+import os, shutil, subprocess
+from argparse import ArgumentParser, RawTextHelpFormatter
+from pathlib import Path
 
-wav_files = [filename for filename in os.listdir() if os.path.splitext(filename)[-1] == '.wav']
 
-filepath_of_sox = os.path.join("sox", "sox")
+def line():
+    print('-----------------------------------------------------------------------------------------------------------')
 
-print('You can choose one of the following sample rates:')
+parser = ArgumentParser(formatter_class=RawTextHelpFormatter)
 
-sample_rate_options = ['44.1 kHz', '48 kHz', '96 kHz', '192 kHz']
+parser.add_argument('-p', '--wav-files-path', type=str, 
+                    help='Enter the path of the directory that the WAV files are in. '
+                    'If the path contains a space, it must be surrounded in double quotes.\n'
+                    'If this argument is not specified, the current directory will be used. \n'
+                    'Example: -p "C:/Users/H/Desktop/WAV files"')
 
-for position, sample_rate in enumerate(sample_rate_options):
-	print(position, sample_rate) 
+parser.add_argument('-r', '--sample-rate', type=str, required=True, choices=['44100', '48000', '96000', '192000'],
+                    help='Choose a sample rate (Hz).')
 
-sample_rate_index = int(input('Choose your desired sample rate by entering the number that it is associated with.\n'
-	'For example, to choose 44.1 kHz, enter 0: '))
+parser.add_argument('-os', '--operating-system', type=str.lower, required=True, choices=['windows', 'macos'],
+                    help='Specify your operating system. Only the Windows and macOS operating systems are supported.')
 
-sample_rate = int(sample_rate_options[sample_rate_index][:-4]) * 1000
+args = parser.parse_args()
 
-end_of_filename = ' [' + sample_rate_options[sample_rate_index] + ']'
+wav_files_path = os.listdir(args.wav_files_path) if args.wav_files_path else os.listdir()
+
+wav_files = [filename for filename in wav_files_path if Path(filename).suffix == '.wav']
+
+line()
+print('The following WAV files have been found:')
 
 for file in wav_files:
-    new_filename = os.path.splitext(file)[0] + end_of_filename + ".wav"
-    print("Resampling {}...".format(file))
-    os.system('{} -G "{}" -r {} "{}"'.format(filepath_of_sox, file, desired_sample_rate, new_filename))
-    print("{} resampled. Resampled file saved as {}".format(file, new_filename))
+    print(file)
 
-input("You may now close this window.")
+line()
+
+if args.operating_system == 'windows':
+    for file in os.listdir('Windows'):
+        shutil.move(f'Windows/{file}', 'sox')
+else:
+    for file in os.listdir('macOS'):
+        shutil.move(f'macOS/{file}', 'sox')
+
+sox_path = os.path.join('sox', 'sox')
+
+output_folder = f'{args.sample_rate} Hz'
+os.makedirs(output_folder, exist_ok=True)
+
+wav_files_path = args.wav_files_path if args.wav_files_path else ''
+
+for file in wav_files:
+    output_path = os.path.join(output_folder, file)
+    args = [sox_path, '-G', os.path.join(wav_files_path, file), '-r', args.sample_rate, output_path]
+    print(f'Resampling {file}...')
+    subprocess.run(args)
+    print(f'{file} resampled.')
+
+line()
+input("All done! You may now close this window.")
